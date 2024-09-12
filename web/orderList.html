@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Order List</h1>
+    <table id="orderTable">
+        <thead>
+            <tr>
+                <th>Menu</th>
+                <th>Sweetness</th>
+                <th>Temperature</th>
+                <th>Topping</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be populated by JavaScript -->
+        </tbody>
+    </table>
+    <p id="noOrdersMessage" style="display: none;">No orders found.</p>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var orders = ${ordersJson}; // The JSON data from the servlet
+            var tableBody = document.querySelector('#orderTable tbody');
+            var noOrdersMessage = document.querySelector('#noOrdersMessage');
+            
+            if (orders.length > 0) {
+                noOrdersMessage.style.display = 'none';
+                orders.forEach(function(order) {
+                    var row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${order.menu}</td>
+                        <td>${order.sweetness}</td>
+                        <td>${order.temperature}</td>
+                        <td>${order.topping}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } else {
+                noOrdersMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

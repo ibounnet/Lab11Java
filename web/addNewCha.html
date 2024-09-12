@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAMAI Order Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold text-center mb-6">CHAMAI Order</h1>
+        
+        <form action="addorder" method="post">
+            <div class="mb-4">
+                <label for="menu" class="block text-sm font-medium text-gray-700">Menu:</label>
+<select id="menu" name="menu" required class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    <option value="" disabled selected>Select a menu item</option>
+    <option value="coffee">Coffee</option>
+    <option value="espresso">Espresso</option>
+    <option value="latte">Latte</option>
+    <option value="cappuccino">Cappuccino</option>
+    <option value="americano">Americano</option>
+    <option value="mocha">Mocha</option>
+    <option value="macchiato">Macchiato</option>
+    <option value="flat_white">Flat White</option>
+    <option value="irish_coffee">Irish Coffee</option>
+    <option value="affogato">Affogato</option>
+    <!-- Tea Menu -->
+    <option value="green_tea">Green Tea</option>
+    <option value="black_tea">Black Tea</option>
+    <option value="oolong_tea">Oolong Tea</option>
+    <option value="chai_tea">Chai Tea</option>
+    <option value="earl_grey">Earl Grey</option>
+    <option value="matcha">Matcha</option>
+</select>
+
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Sweetness:</label>
+                <div class="mt-2 space-y-2">
+                    <div class="flex items-center">
+                        <input type="radio" id="sweet0" name="sweetness" value="0%" required class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                        <label for="sweet0" class="ml-3 block text-sm font-medium text-gray-700">0%</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="sweet25" name="sweetness" value="25%" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                        <label for="sweet25" class="ml-3 block text-sm font-medium text-gray-700">25%</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="sweet50" name="sweetness" value="50%" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                        <label for="sweet50" class="ml-3 block text-sm font-medium text-gray-700">50%</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="sweet75" name="sweetness" value="75%" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                        <label for="sweet75" class="ml-3 block text-sm font-medium text-gray-700">75%</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="sweet100" name="sweetness" value="100%" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                        <label for="sweet100" class="ml-3 block text-sm font-medium text-gray-700">100%</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Temperature:</label>
+                <div class="mt-2 space-y-2">
+                    <div class="flex items-center">
+                        <input type="radio" id="hot" name="temperature" value="hot" required class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                        <label for="hot" class="ml-3 block text-sm font-medium text-gray-700">Hot</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="cold" name="temperature" value="cold" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                        <label for="cold" class="ml-3 block text-sm font-medium text-gray-700">Cold</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="topping" class="block text-sm font-medium text-gray-700">Topping:</label>
+                <select id="topping" name="topping" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="none">None</option>
+                    <option value="tapioca">Tapioca</option>
+                    <option value="jelly">Jelly</option>
+                    <option value="pudding">Pudding</option>
+                    <option value="whipped_cream">Whipped Cream</option>
+                    <option value="chocolate_syrup">Chocolate Syrup</option>
+                    <!-- Add other topping options as needed -->
+                </select>
+            </div>
+            <div>
+                <button type="submit" class="w-full bg-green-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Add Order</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

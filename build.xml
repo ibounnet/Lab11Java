@@ -1,0 +1,43 @@
+<project name="WebLab6" default="default" basedir=".">
+    <description>Builds, tests, and runs the project WebLab6.</description>
+    <import file="nbproject/build-impl.xml"/>
+    
+    <target name="clean">
+        <delete dir="${dist.dir}"/>
+    </target>
+    
+    <target name="compile" depends="clean">
+        <mkdir dir="${build.classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.classes.dir}">
+            <classpath>
+                <pathelement path="${libs.dir}/jstl-api-1.2.jar"/>
+                <pathelement path="${libs.dir}/jstl-impl-1.2.jar"/>
+                <pathelement path="${lib.dir}/gson-2.8.9.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    
+    
+    <target name="dist" depends="compile">
+        <mkdir dir="${dist.dir}"/>
+        <copy todir="${dist.dir}">
+            <fileset dir="${build.classes.dir}"/>
+        </copy>
+        <jar destfile="${dist.jar}" basedir="${dist.dir}"/>
+    </target>
+    
+    <target name="deploy" depends="dist">
+        <deploy>
+            <war file="${dist.jar}" webxml="web/WEB-INF/web.xml"/>
+        </deploy>
+    </target>
+
+    <target name="copy-libs" description="Copy libraries">
+        <copy todir="${build.dir}/WEB-INF/lib">
+            <fileset dir="${src.dir}/WEB-INF/lib">
+                <include name="**/*.jar"/>
+            </fileset>
+        </copy>
+    </target>
+</project>
